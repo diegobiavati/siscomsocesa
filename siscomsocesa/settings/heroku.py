@@ -2,12 +2,12 @@
 Production Settings for Heroku
 """
 
-import environs
+import environ
 
 # If using in your own project, update the project namespace below
 from siscomsocesa.settings.base import *
 
-env = environs.Env(
+env = environ.Env(
     # set casting, default value
     DEBUG=(bool, False)
 )
