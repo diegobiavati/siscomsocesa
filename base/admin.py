@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import RegisterType, PostGraduation, DivisionSession, Branch
+
+admin.site.register([
+    RegisterType,
+    PostGraduation,
+    DivisionSession,
+    Branch,
+    ])
