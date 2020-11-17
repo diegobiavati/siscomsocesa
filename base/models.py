@@ -20,6 +20,7 @@ class PostGraduation(models.Model):
         verbose_name = _('Posto/Graduação')
         verbose_name_plural = _('Postos e Graduações')
 
+
 class Branch(models.Model):
     name = models.CharField(max_length=100)
     abbreviation = models.CharField(max_length=20)
@@ -29,6 +30,7 @@ class Branch(models.Model):
     class Meta:
         verbose_name = _('Ramal')
         verbose_name_plural = _('Ramais')
+
 
 class DivisionSession(models.Model):
     name = models.CharField(max_length=100)
@@ -40,3 +42,16 @@ class DivisionSession(models.Model):
     class Meta:
         verbose_name = _('Divisão ou Seção')
         verbose_name_plural = _('Divisões e Seções')
+
+
+class Qualification(models.Model):
+    name = models.CharField(max_length=100)
+    abbreviation = models.CharField(max_length=10)
+    official_color = models.CharField(max_length=7)
+    image = models.FileField()
+    active = models.BooleanField(default=True)
+    def __str__(self):
+        return self.name
+    class Meta:
+        verbose_name = _('Arma/Quadro/Serviço')
+        verbose_name_plural = _('Armas/Quadros/Serviços')
