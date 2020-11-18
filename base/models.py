@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 class RegisterType(models.Model):
     name = models.CharField(max_length=100)
     abbreviation = models.CharField(max_length=10)
+    activate = models.BooleanField(default=True)
     def __str__(self):
         return self.name
     class Meta:
@@ -14,6 +15,7 @@ class RegisterType(models.Model):
 class PostGraduation(models.Model):
     name = models.CharField(max_length=100)
     abbreviation = models.CharField(max_length=10)
+    activate = models.BooleanField(default=True)
     def __str__(self):
         return self.name
     class Meta:
@@ -25,6 +27,7 @@ class Branch(models.Model):
     name = models.CharField(max_length=100)
     abbreviation = models.CharField(max_length=20)
     telephone = models.CharField(max_length=4)
+    activate = models.BooleanField(default=True)
     def __str__(self):
         return self.name
     class Meta:
@@ -37,6 +40,7 @@ class DivisionSession(models.Model):
     abbreviation = models.CharField(max_length=20)
     branch = models.ManyToManyField(Branch,blank=True)
     subordination = models.ManyToManyField("self",blank=True)
+    activate = models.BooleanField(default=True)
     def __str__(self):
         return self.name
     class Meta:
