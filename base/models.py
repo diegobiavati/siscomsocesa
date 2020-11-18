@@ -8,6 +8,7 @@ class RegisterType(models.Model):
     def __str__(self):
         return self.name
     class Meta:
+        ordering = ('activate',)
         verbose_name = _('Tipo de Identificação')
         verbose_name_plural = _('Tipos de Identificação')
 
@@ -53,7 +54,7 @@ class Qualification(models.Model):
     abbreviation = models.CharField(max_length=10)
     official_color = models.CharField(max_length=7)
     image = models.FileField()
-    active = models.BooleanField(default=True)
+    activate = models.BooleanField(default=True)
     def __str__(self):
         return self.name
     class Meta:
