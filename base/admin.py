@@ -13,6 +13,7 @@ admin.site.register([
 
 class RegisterType(admin.ModelAdmin):
     list_display = ('name','abbreviation','activate')
+    search_fields = ('name','abbreviation',)
 
 class PostGraduation(admin.ModelAdmin):
     list_display = ('name','abbreviation','activate')
