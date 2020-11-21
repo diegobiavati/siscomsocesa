@@ -9,11 +9,10 @@ admin.site.register([
     ])
 
 @admin.register(RegisterType)
-@admin.register(PostGraduation)
-
 class RegisterType(admin.ModelAdmin):
     list_display = ('name','abbreviation','activate')
     search_fields = ('name','abbreviation',)
 
+@admin.register(PostGraduation)
 class PostGraduation(admin.ModelAdmin):
     list_display = ('name','abbreviation','activate')
