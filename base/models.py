@@ -50,7 +50,6 @@ class Qualification(models.Model):
     name = models.CharField(max_length=100)
     abbreviation = models.CharField(max_length=10)
     official_color = models.CharField(max_length=7)
-    image = models.FileField()
     activate = models.BooleanField(default=True)
     def __str__(self):
         return self.name
