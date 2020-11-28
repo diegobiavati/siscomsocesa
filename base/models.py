@@ -38,6 +38,13 @@ class DivisionSession(models.Model):
     name = models.CharField(max_length=100)
     abbreviation = models.CharField(max_length=20)
     branch = models.ManyToManyField(Branch,blank=True)
+    branch_main = models.ForeignKey(
+        Branch,
+        related_name='branch_main',
+        blank=True,
+        default = None,
+        null=True,
+        on_delete=models.CASCADE)
     subordination = models.ManyToManyField("self",blank=True)
     activate = models.BooleanField(default=True)
     def __str__(self):
