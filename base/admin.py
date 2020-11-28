@@ -24,4 +24,4 @@ class PostGraduation(admin.ModelAdmin):
 @admin.register(Qualification)
 class Qualification(admin.ModelAdmin):
     list_display = ('name','abbreviation','activate')
-        search_fields = ('name', 'abbreviation')
+    search_fields = ('name', 'abbreviation')
