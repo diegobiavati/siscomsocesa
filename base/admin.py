@@ -14,6 +14,7 @@ class DivisionSession(admin.ModelAdmin):
 @admin.register(RegisterType)
 class RegisterType(admin.ModelAdmin):
     list_display = ('name','abbreviation','activate')
+    prepopulated_fields = {"slug": ("name",)}
     search_fields = ('name','abbreviation',)
 
 @admin.register(PostGraduation)

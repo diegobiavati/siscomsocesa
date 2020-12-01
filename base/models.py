@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 class RegisterType(models.Model):
     name = models.CharField(max_length=100)
     abbreviation = models.CharField(max_length=10)
+    slug = models.SlugField(unique=True)
     activate = models.BooleanField(default=True)
     def __str__(self):
         return self.name
