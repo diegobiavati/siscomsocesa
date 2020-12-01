@@ -1,4 +1,6 @@
-from django.shortcuts import get_object_or_404, render
+from django.http import Http404
+from django.shortcuts import get_object_or_404, render, HttpResponse
+from django.template import loader
 
 from .models import Question
 
