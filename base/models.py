@@ -47,6 +47,8 @@ class DivisionSession(models.Model):
         null=True,
         on_delete=models.CASCADE)
     subordination = models.ManyToManyField("self",blank=True)
+    echelon = models.BooleanField(default=False)
+    subunit = models.BooleanField(default=False)
     activate = models.BooleanField(default=True)
     def __str__(self):
         return self.name

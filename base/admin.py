@@ -9,7 +9,14 @@ class Branch(admin.ModelAdmin):
 
 @admin.register(DivisionSession)
 class DivisionSession(admin.ModelAdmin):
-    list_display = ('name','abbreviation','activate')
+    list_display = (
+        'name',
+        'abbreviation',
+        'subunit',
+        'echelon',
+        'activate'
+    )
+    search_fields = ('name','abbreviation')
 
 @admin.register(RegisterType)
 class RegisterType(admin.ModelAdmin):
