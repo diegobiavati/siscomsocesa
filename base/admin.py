@@ -7,6 +7,7 @@ class Branch(admin.ModelAdmin):
     list_display = ('name','abbreviation','telephone','activate')
     search_fields = ('name','abbreviation','telephone')
 
+'''Model DivisionSession'''
 @admin.register(DivisionSession)
 class DivisionSession(admin.ModelAdmin):
     list_display = (
@@ -15,6 +16,11 @@ class DivisionSession(admin.ModelAdmin):
         'subunit',
         'echelon',
         'activate'
+    )
+    list_filter = (
+        'subunit',
+        'echelon',
+        'activate',
     )
     search_fields = ('name','abbreviation')
 
