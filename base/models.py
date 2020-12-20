@@ -5,7 +5,10 @@ class RegisterType(models.Model):
     """
     Stores a single documentation type.
     """
-    name = models.CharField(max_length=100)
+    name = models.CharField(
+            max_length=100,
+            help_text="Name of the Register Type.",
+            )
     abbreviation = models.CharField(max_length=10)
     slug = models.SlugField(unique=True)
     activate = models.BooleanField(default=True)
