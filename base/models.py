@@ -7,11 +7,20 @@ class RegisterType(models.Model):
     """
     name = models.CharField(
         max_length=100,
-        help_text="Name of the Register Type.",
+        help_text="Name of the RegisterType.",
     )
-    abbreviation = models.CharField(max_length=10)
-    slug = models.SlugField(unique=True)
-    activate = models.BooleanField(default=True)
+    abbreviation = models.CharField(
+        max_length=10,
+        help_text="Abbreviation name of the RegisterType.",
+        )
+    slug = models.SlugField(
+        unique=True,
+        help_text="slug URL of the RegisterType.",
+        )
+    activate = models.BooleanField(
+        default=True,
+        help_text="Activate and Deactivate RegisterType.",
+        )
     def __str__(self):
         return self.name
     class Meta:
