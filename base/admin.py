@@ -40,6 +40,7 @@ class DivisionSession(admin.ModelAdmin):
         'abbreviation',
         )
 
+'''Model PostGraduation'''
 @admin.register(PostGraduation)
 class PostGraduation(admin.ModelAdmin):
     list_display = (
@@ -56,6 +57,7 @@ class PostGraduation(admin.ModelAdmin):
         'abbreviation',
         )
 
+'''Model Qualification'''
 @admin.register(Qualification)
 class Qualification(admin.ModelAdmin):
     list_display = (
@@ -71,6 +73,7 @@ class Qualification(admin.ModelAdmin):
         'abbreviation'
         )
 
+'''Model RegisterType'''
 @admin.register(RegisterType)
 class RegisterType(admin.ModelAdmin):
     list_display = (
