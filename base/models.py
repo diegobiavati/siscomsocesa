@@ -5,21 +5,21 @@ class RegisterType(models.Model):
     """
     Stores a single documentation type.
     """
-    name = models.CharField(
-        max_length=100,
-        help_text="Name of the RegisterType.",
-    )
     abbreviation = models.CharField(
         max_length=10,
         help_text="Abbreviation name of the RegisterType.",
         )
-    slug = models.SlugField(
-        unique=True,
-        help_text="slug URL of the RegisterType.",
-        )
     activate = models.BooleanField(
         default=True,
         help_text="Activate and Deactivate RegisterType.",
+        )
+    name = models.CharField(
+        max_length=100,
+        help_text="Name of the RegisterType.",
+        )
+    slug = models.SlugField(
+        unique=True,
+        help_text="slug URL of the RegisterType.",
         )
     def __str__(self):
         return self.name
@@ -29,26 +29,54 @@ class RegisterType(models.Model):
         verbose_name_plural = _('Tipos de Identificação')
 
 class PostGraduation(models.Model):
-    name = models.CharField(max_length=100)
-    abbreviation = models.CharField(max_length=10)
-    seniority = models.ManyToManyField("self",blank=True)
-    activate = models.BooleanField(default=True)
+    abbreviation = models.CharField(
+        max_length=10,
+        help_text="",
+        )
+    activate = models.BooleanField(
+        default=True,
+        help_text="",
+        )
+    name = models.CharField(
+        max_length=100,
+        help_text="Name of the Post & Graduation.",
+        )
+    seniority = models.ManyToManyField(
+        "self",
+        blank=True,
+        )
+    slug = models.SlugField(
+        unique=True,
+        help_text="slug URL of the Post & Graduation.",
+        )
     def __str__(self):
         return self.name
     class Meta:
-        verbose_name = _('Posto/Graduação')
-        verbose_name_plural = _('Postos e Graduações')
+        ordering = ('activate',)
+        verbose_name = _('Posto/Graduação',)
+        verbose_name_plural = _('Postos e Graduações',)
 
 class Branch(models.Model):
-    name = models.CharField(max_length=100)
-    abbreviation = models.CharField(max_length=20)
-    telephone = models.CharField(max_length=4)
+    abbreviation = models.CharField(
+        max_length=20,
+        help_text=".",
+        )
     activate = models.BooleanField(default=True)
+    name = models.CharField(max_length=100)
+    slug = models.SlugField(
+        unique=True,
+        help_text=".",
+        )
+    telephone = models.CharField(
+        max_length=4,
+        help_text=".",
+        )
     def __str__(self):
         return self.name
     class Meta:
-        verbose_name = _('Ramal')
-        verbose_name_plural = _('Ramais')
+        ordering = ('activate',)
+        verbose_name = _('Ramal',)
+        verbose_name_plural = _('Ramais',)
 
 class DivisionSession(models.Model):
     name = models.CharField(max_length=100)
@@ -68,8 +96,9 @@ class DivisionSession(models.Model):
     def __str__(self):
         return self.name
     class Meta:
-        verbose_name = _('Divisão ou Seção')
-        verbose_name_plural = _('Divisões e Seções')
+        ordering = ('activate',)
+        verbose_name = _('Divisão ou Seção',)
+        verbose_name_plural = _('Divisões e Seções',)
 
 class Qualification(models.Model):
     name = models.CharField(max_length=100)
@@ -79,5 +108,6 @@ class Qualification(models.Model):
     def __str__(self):
         return self.name
     class Meta:
-        verbose_name = _('Arma/Quadro/Serviço')
-        verbose_name_plural = _('Armas/Quadros/Serviços')
+        ordering = ('activate',)
+        verbose_name = _('Arma/Quadro/Serviço',)
+        verbose_name_plural = _('Armas/Quadros/Serviços',)
