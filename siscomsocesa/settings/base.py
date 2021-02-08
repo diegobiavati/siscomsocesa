@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'fusex.apps.FusexConfig',
     'polls.apps.PollsConfig',
     'base.apps.BaseConfig',
     'django.contrib.admin',
