@@ -22,10 +22,13 @@ class OcsPsaAdmin(admin.ModelAdmin):
     search_fields = ('nome','telefone','email')
     list_filter = ('status',)
     prepopulated_fields = {"slug": ("nome",)}
+    autocomplete_fields = ['procedimentos']
 
 @admin.register(Atendimento)
 class Atendimento(admin.ModelAdmin):
-    list_display = ('id','data','status')
+    date_hierarchy = 'data'
+    list_display = ('id','beneficiario','data','status')
     search_fields = ('data','id')
     list_filter = ('status',)
     prepopulated_fields = {"slug": ("beneficiario",)}
+    autocomplete_fields = ['beneficiario']

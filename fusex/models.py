@@ -9,9 +9,9 @@ class Beneficiario(models.Model):
     email = models.EmailField()
     telefone = models.CharField(max_length=11)
     slug = models.SlugField()
-    status = models.BooleanField()
+    status = models.BooleanField(default=True)
     def __str__(self):
-        return self.nome
+        return self.preccp+" "+self.nome
 
 class Procedimento(models.Model):
     nome = models.CharField(max_length=250)
@@ -19,7 +19,7 @@ class Procedimento(models.Model):
     #ocs_psa = models.ManyToManyField(OcsPsa)
     valor = models.IntegerField()
     slug = models.SlugField()
-    status = models.BooleanField()
+    status = models.BooleanField(default=True)
     def __str__(self):
         return self.nome
 
@@ -39,5 +39,3 @@ class Atendimento(models.Model):
     procedimento = models.ManyToManyField(Procedimento)
     slug = models.SlugField()
     status = models.BooleanField()
-    def __str__(self):
-        return self.beneficiario.nome
