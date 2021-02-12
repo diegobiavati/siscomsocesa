@@ -29,6 +29,6 @@ class Atendimento(admin.ModelAdmin):
     date_hierarchy = 'data'
     list_display = ('id','beneficiario','data','status')
     search_fields = ('data','id')
-    list_filter = ('status',)
+    list_filter = ('status','data')
     prepopulated_fields = {"slug": ("beneficiario",)}
-    autocomplete_fields = ['beneficiario']
+    autocomplete_fields = ['beneficiario','procedimento']

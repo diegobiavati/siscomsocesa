@@ -11,7 +11,9 @@ class Beneficiario(models.Model):
     slug = models.SlugField()
     status = models.BooleanField(default=True)
     def __str__(self):
-        return self.preccp+" "+self.nome
+        return self.preccp+" "+self.nome+" ("+self.cpf+")"
+    class Meta:
+        ordering = ('nome',)
 
 class Procedimento(models.Model):
     nome = models.CharField(max_length=250)
@@ -39,3 +41,5 @@ class Atendimento(models.Model):
     procedimento = models.ManyToManyField(Procedimento)
     slug = models.SlugField()
     status = models.BooleanField()
+    def __str__(self):
+        return str(self.id)
